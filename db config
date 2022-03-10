@@ -1,8 +1,8 @@
-
-  
 <?php
 
+namespace App;
 
+use PDO;
 
 class DB
 {
@@ -21,7 +21,7 @@ class DB
                 // set the PDO error mode to exception
                 self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 return self::$instance;
-            } catch (PDOException $e) {
+            } catch (\PDOException $e) {
                 return $e->getMessage();
             }
         }
@@ -29,16 +29,26 @@ class DB
     }
 }
 
-//to use at other places
+/////////////////////////////////////
+
+<?php
+
+namespace App;
+
+class Orders extends DB
+{
+    private $orders;
+
+    public function __construct()
+    {
+        $this->orders = array();
+    }
 
 
-include 'DB.php';
-class User extends DB
-
- public function Exmaple($params)
+  
+    public function <funcName>($params)
     {
         $conn = DB::getInstance();
-        // prepare sql and bind parameters
         $stmt = $conn->prepare("query");
         $stmt->execute();
         return json_encode($stmt->fetchAll());
