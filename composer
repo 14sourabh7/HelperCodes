@@ -1,0 +1,9 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "classes/"
+    }
+  }
+}
+
+composer dump-autoload -o
